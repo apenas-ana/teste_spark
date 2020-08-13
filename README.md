@@ -10,8 +10,7 @@ variable bairro_pinheiros = cidade_sp.where("bairro" == "Pinheiros")
 No exemplo acima, acessos futuros (bairro_pinheiros) ao resultado da filtragem por dados de São Paulo ficarão mais rápidos, pois estão na memória.
 Caso não haja espaço para armazenamento na memória, é utilizado o disco.
 
-### O mesmo código implementado em Spark é normalmente mais rápido que a implementação equivalente em
-MapReduce. Por quê?
+### O mesmo código implementado em Spark é normalmente mais rápido que a implementação equivalente em MapReduce. Por quê?
 
 Isso se deve principalmente ao fato de que o Spark processa os dados na memória, enquanto o MapReduce faz o processamento lendo e gravando no disco, fazendo com que o Spark possa ser até 100 vezes mais rápido. Um importante fator para esse ganho do Spark na relação tempo/velocidade é o uso do comando cache (explicado na questão anterior).
 
