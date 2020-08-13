@@ -1,5 +1,6 @@
-from pyspark.sql import SparkSession
 from pyspark import SparkContext
+from pyspark.sql import SparkSession
+from pyspark.sql.types import IntegerType
 from pyspark.sql.functions import regexp_extract, regexp_replace
 import re
 import glob
@@ -50,6 +51,8 @@ print(err404_per_day)
 
 # substitui todos bytes que estão igual a '-' por 0 para poder realizar a soma
 base_df_structured = base_df_structured.withColumn('bytes', regexp_replace('bytes', '-', '0'))
+# converte bytes para IntegerType para poder realizar o sum
+base_df_structured = base_df_structured.withColumn('bytes', base_df_structured['bytes'].cast(IntegerType()))
 
 # Resposta da questão 5
 print('O total de bytes retornados:')
