@@ -74,3 +74,13 @@ Reduz todas as ocorrências de uma mesma palavra a um único par de chave-valor 
 5. counts.saveAsTextFile("hdfs://...")
 
 Como passo final, armazena a contabilização de ocorrências de todas as palavras em um arquivo texto no HDFS.
+
+### Bibliotecas utilizadas na análise dos arquivos Nasa
+```
+from pyspark import SparkContext
+from pyspark.sql import SparkSession
+from pyspark.sql.types import IntegerType
+from pyspark.sql.functions import regexp_extract, regexp_replace
+import re
+import glob
+```
